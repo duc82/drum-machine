@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap");
+
+$bgContainer: rgb(141, 141, 141);
+$bgDrumMachine: rgb(179, 179, 179);
+$borderColor: rgb(255, 165, 0);
+$bgDrumpad: rgb(128, 128, 128);
+$bgInputRange: rgb(66, 66, 66);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+}
+
+body {
+  background-color: $bgContainer;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  #drum-machine {
+    background-color: $bgDrumMachine;
+    border: 4px solid $borderColor;
+    width: 660px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    .drum-pads {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-right: 20px;
+
+      button {
+        background-color: $bgDrumpad;
+        height: 80px;
+        width: 100px;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        color: black;
+        box-shadow: 3px 3px 5px black;
+
+        &.active,
+        &:active {
+          background-color: $borderColor;
+          box-shadow: none;
+          transform: translateY(3px);
+        }
+      }
+    }
+
+    .drum-control {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 20px;
+      text-align: center;
+
+      #display {
+        background-color: $bgDrumpad;
+        width: 200px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
+
+      #volume {
+        input {
+          appearance: none;
+          width: 240px;
+        }
+      }
+    }
+  }
+}
+
+.switch {
+  padding: 3px 2px;
+  width: 50px;
+  height: 22px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+
+  &.on {
+    justify-content: flex-end;
+  }
+
+  .thumb {
+    border: none;
+    background-color: blue;
+    height: 100%;
+    width: 20px;
+    cursor: pointer;
+  }
+}
+
+[type="range"]:focus {
+  outline: none;
+}
+[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 2px #222, 0 0 2px #2f2f2f;
+  background: #424242;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+[type="range"]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #111, 0 0 1px #1e1e1e;
+  border: 0 solid #fff;
+  height: 25px;
+  width: 8px;
+  border-radius: 0;
+  background: blue;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -11px;
+}
+[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #4f4f4f;
+}
+[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 2px #222, 0 0 2px #2f2f2f;
+  background: #424242;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #111, 0 0 1px #1e1e1e;
+  border: 0 solid #fff;
+  height: 25px;
+  width: 8px;
+  border-radius: 0;
+  background: blue;
+  cursor: pointer;
+}
+[type="range"]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  border-color: transparent;
+  border-width: 8px 0;
+  color: transparent;
+}
+[type="range"]::-ms-fill-lower {
+  box-shadow: 2px 2px 2px #222, 0 0 2px #2f2f2f;
+  background: #353535;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+[type="range"]::-ms-fill-upper {
+  box-shadow: 2px 2px 2px #222, 0 0 2px #2f2f2f;
+  background: #424242;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+[type="range"]::-ms-thumb {
+  box-shadow: 1px 1px 1px #111, 0 0 1px #1e1e1e;
+  border: 0 solid #fff;
+  height: 25px;
+  width: 8px;
+  border-radius: 0;
+  background: blue;
+  cursor: pointer;
+}
+[type="range"]:focus::-ms-fill-lower {
+  background: #424242;
+}
+[type="range"]:focus::-ms-fill-upper {
+  background: #4f4f4f;
+}
